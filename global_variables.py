@@ -33,14 +33,14 @@ def randomizer():
         return random.randint(1,3)
 
 for i in range(0 , 90 , 3):
-    bricks4.append(Brick(brick , i+5,5 ,randomizer() , random.randint(0,6) ))
+    bricks4.append(Brick(brick , i+5,5 ,randomizer() , 6 ))
     bricks1.append(Brick(brick , i+5,6 , randomizer() , 6 )) 
     bricks2.append(Brick(brick , i+5,10 , randomizer() , random.randint(0,6) ))
-    bricks3.append(Brick(brick , i+5,8 , randomizer() , random.randint(0,6) ))
+    bricks3.append(Brick(brick , i+5,8 , randomizer() , 6 ))
     if i >20 and i<45:
         exp_brick.append(Exploding_bricks(exploding , i+5 , 7)) 
     else:
-        bricks5.append(Brick(brick ,i+5,7 , randomizer() , random.randint(0,6) ))
+        bricks5.append(Brick(brick ,i+5,7 , randomizer() , 6 ))
     bricks_coor.append((i+5 , 9))
 
 flag = 0
