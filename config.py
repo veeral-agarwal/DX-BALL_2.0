@@ -20,6 +20,8 @@ thru_ball = [['t']]
 shrink_paddle = [['s']]
 expand_paddle = [['e']]
 paddle_grab = [['p']]
+fire_ball = [['a']]
+shooting_paddle = [['b']]
 
 ball = [['*']]
 ball2 = [['o']]

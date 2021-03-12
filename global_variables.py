@@ -33,15 +33,17 @@ def randomizer():
         return random.randint(1,3)
 
 for i in range(0 , 90 , 3):
-    bricks4.append(Brick(brick , i+5,5 ,randomizer() , 6 ))
-    bricks1.append(Brick(brick , i+5,6 , randomizer() , 6 )) 
-    bricks2.append(Brick(brick , i+5,10 , randomizer() , random.randint(0,6) ))
-    bricks3.append(Brick(brick , i+5,8 , randomizer() , 6 ))
+    bricks4.append(Brick(brick , i+5,5 ,randomizer() , 8 ))
+    bricks1.append(Brick(brick , i+5,6 , randomizer() , 8 )) 
+    bricks2.append(Brick(brick , i+5,10 , randomizer() , random.randint(6,6) ))
+    bricks3.append(Brick(brick , i+5,8 , randomizer() , 8 ))
     if i >20 and i<45:
         exp_brick.append(Exploding_bricks(exploding , i+5 , 7)) 
     else:
-        bricks5.append(Brick(brick ,i+5,7 , randomizer() , 6 ))
+        bricks5.append(Brick(brick ,i+5,7 , randomizer() , 8 ))
     bricks_coor.append((i+5 , 9))
+
+fire_ball_list = []
 
 flag = 0
 powerupflag_thru_ball = 0
@@ -50,13 +52,17 @@ powerupflag_expand_paddle = 0
 powerupflag_shrink_paddle = 0
 powerupflag_ball_multiplier = 0
 powerupflag_paddle_grab = 0
+powerupflag_fire_ball = 0
+powerupflag_shooting_paddle = 0
 
-active_powerupflag = [0,0,0,0,0,0]
-inair_powerupflag = [0,0,0,0,0,0]
+active_powerupflag = [0,0,0,0,0,0,0,0]
+inair_powerupflag = [0,0,0,0,0,0,0,0]
 
-powerups = [powerupflag_ball_multiplier , powerupflag_expand_paddle , powerupflag_fast_ball , powerupflag_paddle_grab , powerupflag_shrink_paddle , powerupflag_thru_ball]
-powerups_name = ["powerupflag_ball_multiplier" , "powerupflag_expand_paddle" , "powerupflag_fast_ball" , "powerupflag_paddle_grab" , "powerupflag_shrink_paddle" , "powerupflag_thru_ball"]
-powerup_start_time = [0,0,0,0,0,0]
+powerups = [powerupflag_ball_multiplier , powerupflag_expand_paddle , powerupflag_fast_ball , powerupflag_paddle_grab , powerupflag_shrink_paddle , powerupflag_thru_ball  
+                                                                      ,powerupflag_fire_ball , powerupflag_shooting_paddle  ]
+powerups_name = ["powerupflag_ball_multiplier" , "powerupflag_expand_paddle" , "powerupflag_fast_ball" , "powerupflag_paddle_grab" 
+                            , "powerupflag_shrink_paddle" , "powerupflag_thru_ball" , "powerupflag_fire_ball" , "powerupflag_shooting_paddle" ]
+powerup_start_time = [0,0,0,0,0,0,0,0]
 
 powerup_objects = []
 
@@ -79,7 +85,7 @@ def powerup_top_string():
 def render_inair_powerup():
     for i in powerup_objects:
         i.clear()
-        for j in range(6):
+        for j in range(8):
             if inair_powerupflag[j] == 1:
                 i.clear()
                 i.render()
