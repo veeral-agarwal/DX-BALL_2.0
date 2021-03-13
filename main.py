@@ -4,6 +4,7 @@ from time import sleep, time
 import time
 from global_variables import *
 import global_variables
+import objects
 
 if __name__ == "__main__":
     obj1 = Get()
@@ -22,5 +23,14 @@ if __name__ == "__main__":
             move_left()
         elif val == 'd':
             move_right()
+        elif val == 'l':
+            global_variables.level+=1
+            if global_variables.level == 1:
+                objects.levelskip()
+            elif global_variables.level == 2 :
+                objects.levelskip()
+            else:
+                break
         render_all_components()
     print_final_scores()
+    print(global_variables.level)

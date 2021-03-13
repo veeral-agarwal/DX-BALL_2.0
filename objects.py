@@ -135,6 +135,7 @@ class Ball(Objects):
                         global_variables.flag = 0
                         global_variables.main_ball.position_y = 34
                     else:
+                        take_down_bricks()
                         self.speed_y *= -1
                         self.speed_x -= 2
                 
@@ -147,6 +148,7 @@ class Ball(Objects):
                         global_variables.flag = 0
                         global_variables.main_ball.position_y = 34
                     else    :
+                        take_down_bricks()
                         self.speed_y *= -1
                         self.speed_x -= 1
                 
@@ -159,6 +161,7 @@ class Ball(Objects):
                         global_variables.flag = 0
                         global_variables.main_ball.position_y = 34
                     else:
+                        take_down_bricks()
                         self.speed_y *= -1
                 
                 elif self.position_x == global_variables.main_paddle.position_x+3:
@@ -170,6 +173,7 @@ class Ball(Objects):
                         global_variables.flag = 0
                         global_variables.main_ball.position_y = 34
                     else: 
+                        take_down_bricks()
                         self.speed_y *= -1
                         self.speed_x += 1
                 
@@ -182,6 +186,7 @@ class Ball(Objects):
                         global_variables.flag = 0
                         global_variables.main_ball.position_y = 34
                     else:
+                        take_down_bricks()
                         self.speed_y *= -1
                         self.speed_x +=2
 
@@ -196,6 +201,7 @@ class Ball(Objects):
                         global_variables.flag = 0
                         global_variables.main_ball.position_y = 34
                     else:
+                        take_down_bricks()
                         self.speed_y *= -1
                         self.speed_x -= -1
                     
@@ -208,6 +214,7 @@ class Ball(Objects):
                         global_variables.flag = 0
                         global_variables.main_ball.position_y = 34
                     else:
+                        take_down_bricks()
                         self.speed_y *= -1
                     # self.speed_x -= 1
                 
@@ -220,6 +227,7 @@ class Ball(Objects):
                         global_variables.flag = 0
                         global_variables.main_ball.position_y = 34
                     else:
+                        take_down_bricks()
                         self.speed_y *= -1
                         self.speed_x += 1
 
@@ -234,6 +242,7 @@ class Ball(Objects):
                         global_variables.flag = 0
                         global_variables.main_ball.position_y = 34
                     else:
+                        take_down_bricks()
                         self.speed_y *= -1
                         self.speed_x -= 2
                 
@@ -246,6 +255,7 @@ class Ball(Objects):
                         global_variables.flag = 0
                         global_variables.main_ball.position_y = 34
                     else:
+                        take_down_bricks()
                         self.speed_y *= -1
                         self.speed_x -= 1
                 
@@ -258,6 +268,7 @@ class Ball(Objects):
                         global_variables.flag = 0
                         global_variables.main_ball.position_y = 34
                     else:
+                        take_down_bricks()
                         self.speed_y *= -1
                 
                 elif self.position_x == global_variables.main_paddle.position_x+3:
@@ -269,6 +280,7 @@ class Ball(Objects):
                         global_variables.flag = 0
                         global_variables.main_ball.position_y = 34
                     else:
+                        take_down_bricks()
                         self.speed_y *= -1
                         self.speed_x += 1
                 
@@ -281,6 +293,7 @@ class Ball(Objects):
                         global_variables.flag = 0
                         global_variables.main_ball.position_y = 34
                     else:
+                        take_down_bricks()
                         self.speed_y *= -1
                         self.speed_x +=2
 
@@ -293,6 +306,7 @@ class Ball(Objects):
                         global_variables.flag = 0
                         global_variables.main_ball.position_y = 34
                     else:
+                        take_down_bricks()
                         self.speed_y *= -1
                         self.speed_x +=3
 
@@ -648,3 +662,44 @@ def default():
     global_variables.main_paddle.render()
     for i in range(len(global_variables.active_powerupflag)):
         global_variables.active_powerupflag[i] = 0
+
+def levelskip():
+    global_variables.main_paddle.clear()
+    global_variables.main_ball.clear()
+    # config.lives -= 1
+
+    for j in global_variables.bricks:
+        for i in j:
+            i.clear()
+
+    for i in global_variables.bricks:
+        for j in i:
+            j = []
+
+    global_variables.bricks = global_variables.make_bricks()
+
+    global_variables.explosion_coordinates = []
+
+    global_variables.flag = 0
+    global_variables.main_paddle.position_x=5
+    global_variables.main_paddle.position_y=35
+    global_variables.main_ball.position_x=5
+    global_variables.main_ball.position_y=33
+
+    global_variables.main_ball.speed_x = 0
+    global_variables.main_ball.speed_y = 0
+
+    #for fast ball
+    global_variables.main_ball.onetimetempflag = 0
+    
+    global_variables.main_ball.render()
+    global_variables.main_paddle.render()
+    for i in range(len(global_variables.active_powerupflag)):
+        global_variables.active_powerupflag[i] = 0
+
+
+def take_down_bricks():
+    for i in global_variables.bricks:
+        for j in i:
+            j.clear()
+            j.position_y += 1

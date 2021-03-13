@@ -12,7 +12,7 @@ paddle = [['T','T','T','T','T'], ['T','T','T','T','T'] ]
 shrink_p = [['T','T','T'], ['T','T','T'] ]
 expand_p = [['T','T','T','T','T','T'], ['T','T','T','T','T','T' ]]
 
-lives = 5
+lives = 100
 score = 0
 
 fast_ball = [['f']]

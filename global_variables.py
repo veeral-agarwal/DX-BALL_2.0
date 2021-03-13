@@ -5,6 +5,8 @@ import random
 import numpy as np
 
 
+level = 0
+
 ball_privious_speed_y = 1
 ball_privious_speed_x = 0
 
@@ -43,6 +45,42 @@ for i in range(0 , 90 , 3):
         bricks5.append(Brick(brick ,i+5,7 , randomizer() , 8 ))
     bricks_coor.append((i+5 , 9))
 
+def make_bricks():
+    # if global_variables.level == 0:
+    #     for i in range(0 , 90 , 3):
+    #         bricks4.append(Brick(brick , i+5,5 ,randomizer() , 8 ))
+    #         bricks1.append(Brick(brick , i+5,6 , randomizer() , 8 )) 
+    #         bricks2.append(Brick(brick , i+5,10 , randomizer() , random.randint(6,6) ))
+    #         bricks3.append(Brick(brick , i+5,8 , randomizer() , 8 ))
+    #         if i >20 and i<45:
+    #             exp_brick.append(Exploding_bricks(exploding , i+5 , 7)) 
+    #         else:
+    #             bricks5.append(Brick(brick ,i+5,7 , randomizer() , 8 ))
+            # bricks_coor.append((i+5 , 9))
+    # if global_variables.level == 1:
+        bricks_coor = []
+        bricks1 = []
+        bricks2 = []
+        bricks3 = []
+        bricks4 = []
+        bricks5 = []
+        exp_brick = []
+        bricks = []
+        # bricks = [bricks1 , bricks2 , bricks3, bricks5 , bricks4 ,exp_brick ]
+
+        for i in range(0 , 90 , 3):
+            bricks4.append(Brick(brick , i+5,4 ,randomizer() , 8 ))
+            bricks1.append(Brick(brick , i+5,6 , randomizer() , 8 )) 
+            bricks2.append(Brick(brick , i+5,9 , randomizer() , random.randint(6,6) ))
+            bricks3.append(Brick(brick , i+5,8 , randomizer() , 8 ))
+            if i >20 and i<45:
+                exp_brick.append(Exploding_bricks(exploding , i+5 , 7)) 
+            else:
+                bricks5.append(Brick(brick ,i+5,7 , randomizer() , 8 ))
+            bricks_coor.append((i+5 , 9))
+        bricks = [bricks1 , bricks2 , bricks3, bricks5 , bricks4 ,exp_brick ]
+        return bricks
+
 fire_ball_list = []
 
 flag = 0
@@ -69,10 +107,19 @@ powerup_objects = []
 total_time = 0
 
 def render_all_bricks():
-    for j in bricks:
-        for i in j:
-            i.render()
-            i.collision_ball_brick()
+    if global_variables.level == 0:
+        for j in bricks:
+            for i in j:
+                i.clear()
+                i.render()
+                i.collision_ball_brick()
+    else:
+        for j in bricks:
+            for i in j:
+                i.clear()
+                i.render()
+                i.collision_ball_brick()
+
     
 def powerup_top_string():
     active_powerups = []
