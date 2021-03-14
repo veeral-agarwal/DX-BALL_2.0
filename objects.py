@@ -763,6 +763,13 @@ def levelskip():
 
 
 def take_down_bricks():
+    # for k in global_variables.fire_ball_list:
+    #     temp = list(k)
+    #     temp[1]+=1
+    #     k=tuple(temp)
+
+    global_variables.fire_ball_list = []
+
     for i in global_variables.bricks:
         for j in i:
             j.clear()
@@ -772,6 +779,8 @@ def take_down_bricks():
                 if global_variables.level == 0:
                     if round(time()) - global_variables.level0starttime >15:
                         j.position_y += 1
+                        
                 elif global_variables.level == 1:
                     if (round(time()) - global_variables.level1starttime>10):
                         j.position_y += 1
+                        
