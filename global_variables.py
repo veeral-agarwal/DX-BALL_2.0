@@ -7,6 +7,8 @@ import numpy as np
 
 level = 0
 brick_falldown_flag = 0
+level0starttime = 0
+level1starttime = 0
 
 ball_privious_speed_y = 1
 ball_privious_speed_x = 0

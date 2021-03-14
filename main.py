@@ -14,6 +14,8 @@ if __name__ == "__main__":
         check_powerup_timer()
         val = input_to(obj1)
         
+        
+
         if global_variables.brick_falldown_flag == 1:
             break
 
@@ -21,7 +23,7 @@ if __name__ == "__main__":
             sleep(0.05)
         if val == 'q' or is_life_left() == False or is_time_left()==False:
             break
-        elif val == 'x':    
+        elif val == 'x':   
             shoot()
         elif val == 'a':
             move_left()
@@ -31,6 +33,7 @@ if __name__ == "__main__":
             global_variables.level+=1
             if global_variables.level == 1:
                 objects.levelskip()
+                global_variables.level1starttime = time.time()
             elif global_variables.level == 2 :
                 objects.levelskip()
             else:

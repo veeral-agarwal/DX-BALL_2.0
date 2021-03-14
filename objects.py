@@ -705,4 +705,9 @@ def take_down_bricks():
             if j.position_y >= 34 and j.weight > 0 :
                 global_variables.brick_falldown_flag = 1
             else:
-                j.position_y += 1
+                if global_variables.level == 0:
+                    if round(time()) - global_variables.level0starttime >15:
+                        j.position_y += 1
+                elif global_variables.level == 1:
+                    if (round(time()) - global_variables.level1starttime>10):
+                        j.position_y += 1
