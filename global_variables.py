@@ -6,6 +6,7 @@ import numpy as np
 
 
 level = 0
+brick_falldown_flag = 0
 
 ball_privious_speed_y = 1
 ball_privious_speed_x = 0

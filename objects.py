@@ -702,4 +702,7 @@ def take_down_bricks():
     for i in global_variables.bricks:
         for j in i:
             j.clear()
-            j.position_y += 1
+            if j.position_y >= 34 :
+                global_variables.brick_falldown_flag = 1
+            else:
+                j.position_y += 1
