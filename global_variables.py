@@ -7,6 +7,7 @@ import numpy as np
 
 level = 0
 brick_falldown_flag = 0
+exploding_bricks_flag = 0
 level0starttime = 0
 level1starttime = 0
 
@@ -42,7 +43,7 @@ def randomizer():
 for i in range(0 , 90 , 3):
     bricks4.append(Brick(brick , i+5,5 ,randomizer() , 8 ))
     bricks1.append(Brick(brick , i+5,6 , randomizer() , 8 )) 
-    bricks2.append(Brick(brick , i+5,10 , randomizer() , random.randint(6,6) ))
+    bricks2.append(Brick(brick , i+5,10 , randomizer() , random.randint(7,7) ))
     bricks3.append(Brick(brick , i+5,8 , randomizer() , 8 ))
     if i >20 and i<45:
         exp_brick.append(Exploding_bricks(exploding , i+5 , 7)) 
@@ -76,7 +77,7 @@ def make_bricks():
         for i in range(0 , 90 , 3):
             bricks4.append(Brick(brick , i+5,4 ,randomizer() , 8 ))
             bricks1.append(Brick(brick , i+5,6 , randomizer() , 8 )) 
-            bricks2.append(Brick(brick , i+5,9 , randomizer() , random.randint(6,6) ))
+            bricks2.append(Brick(brick , i+5,9 , randomizer() , random.randint(7,7) ))
             bricks3.append(Brick(brick , i+5,8 , randomizer() , 8 ))
             if i >20 and i<45:
                 exp_brick.append(Exploding_bricks(exploding , i+5 , 7)) 

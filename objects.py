@@ -43,27 +43,36 @@ class Objects():
 
     def render(self):
         if global_variables.active_powerupflag[4] == 1 and global_variables.active_powerupflag[1] == 0:
-            self.shape = config.shrink_p
+            if global_variables.active_powerupflag[7]==1:
+                self.shape = config.shrink_p_shooting
+            else:
+                self.shape = config.shrink_p
             self.width = len(config.shrink_p[0])
             for i in range(self.width):
                 for j in range(self.height):
-                    global_variables.main_board.matrix[j+self.position_y][i+self.position_x] =( Back.CYAN + Fore.CYAN + self.shape[j][i] )
+                    global_variables.main_board.matrix[j+self.position_y][i+self.position_x] =( Back.CYAN + self.shape[j][i] )
         
         elif global_variables.active_powerupflag[1] == 1 and global_variables.active_powerupflag[4] == 0:
-            self.shape = config.expand_p
+            if global_variables.active_powerupflag[7]==1:
+                self.shape = config.expand_p_shooting
+            else:
+                self.shape = config.expand_p
             self.width = len(config.expand_p[0])
             # self.position_x -=1 
             for i in range(self.width):
                 for j in range(self.height):
-                    global_variables.main_board.matrix[j+self.position_y][i+self.position_x] =( Back.CYAN + Fore.CYAN + self.shape[j][i] )
+                    global_variables.main_board.matrix[j+self.position_y][i+self.position_x] =( Back.CYAN + self.shape[j][i] )
 
         elif (global_variables.active_powerupflag[1] == 1 and global_variables.active_powerupflag[4] == 1) or (global_variables.active_powerupflag[1] == 0 and global_variables.active_powerupflag[4] == 0):
-            self.shape = config.paddle
+            if(global_variables.active_powerupflag[7] == 1):
+                self.shape = config.paddle_shooting
+            else:
+                self.shape = config.paddle
             self.width = len(config.paddle[0])
             for i in range(self.width):
                 for j in range(self.height):
-                    global_variables.main_board.matrix[j+self.position_y][i+self.position_x] =( Back.CYAN + Fore.CYAN + self.shape[j][i] )
-
+                    global_variables.main_board.matrix[j+self.position_y][i+self.position_x] =( Back.CYAN  + self.shape[j][i] )
+                    
 class Paddle(Objects):
 
     def __init__(self ,obj , xpos , ypos, lives):
@@ -113,6 +122,7 @@ class Ball(Objects):
             else:
                 self.speed_x += 1
             self.onetimetempflag = 1
+
 
         self.collision_with_wall()
         self.collision_with_paddle()
@@ -393,6 +403,10 @@ class Brick(Objects):
                         global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y , self.contain_powerup))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1  
                 
+                    if self.contain_powerup == 7:
+                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.inair_powerupflag[self.contain_powerup] = 1  
+
                 global_variables.main_paddle.score += 1
                 if global_variables.active_powerupflag[5] == 1:
                     self.weight = 0
@@ -415,6 +429,10 @@ class Brick(Objects):
 
                     if self.contain_powerup == 6:
                         global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y , self.contain_powerup))
+                        # global_variables.inair_powerupflag[self.contain_powerup] = 1  
+
+                    if self.contain_powerup == 7:
+                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y , self.contain_powerup))
                         # global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                 else:
@@ -453,6 +471,10 @@ class Brick(Objects):
                         global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y , self.contain_powerup))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
+                    if self.contain_powerup == 7:
+                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.inair_powerupflag[self.contain_powerup] = 1  
+
                 global_variables.main_paddle.score += 1
                 if global_variables.active_powerupflag[5] == 1:
                     self.weight = 0
@@ -475,6 +497,10 @@ class Brick(Objects):
 
                     if self.contain_powerup == 6:
                         global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y , self.contain_powerup))
+                        # global_variables.inair_powerupflag[self.contain_powerup] = 1  
+
+                    if self.contain_powerup == 7:
+                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y , self.contain_powerup))
                         # global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                 else:
@@ -526,6 +552,10 @@ class Brick(Objects):
                         global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y , self.contain_powerup))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
+                    if self.contain_powerup == 7:
+                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.inair_powerupflag[self.contain_powerup] = 1  
+
                 global_variables.main_paddle.score += 1
                 if global_variables.active_powerupflag[5] == 1:
                     self.weight = 0
@@ -550,6 +580,10 @@ class Brick(Objects):
                         global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y , self.contain_powerup))
                         # global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
+                    if self.contain_powerup == 7:
+                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.inair_powerupflag[self.contain_powerup] = 1  
+
                 else:
                     self.weight -= 1
 
@@ -559,6 +593,7 @@ class Exploding_bricks(Objects):
         self.strength = 1
         self.isexplosive = True
         self.flag = 0
+        self.onetimetempflag = 0
 
     def clear(self):
         for i in range(self.width):
@@ -573,7 +608,7 @@ class Exploding_bricks(Objects):
                 explosion_coor(self.position_x,self.position_y)
         for i in range(self.width):
             for j in range(self.height):
-                if ((self.position_x,self.position_y) not in global_variables.explosion_coordinates):
+                if ((self.position_x,self.position_y) not in global_variables.explosion_coordinates) and global_variables.exploding_bricks_flag == 0:
                     global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = self.shape[j][i]
                 else:
                     # explosion_coor(self.position_x,self.position_y)
@@ -582,6 +617,8 @@ class Exploding_bricks(Objects):
     def collision_ball_brick(self):
         if (self.position_x == global_variables.main_ball.position_x and self.position_y == global_variables.main_ball.position_y) :
             explosion_coor(self.position_x,self.position_y)
+            # self.onetimetempflag = 1
+            global_variables.exploding_bricks_flag = 1
             self.strength = 0
             for i in range(self.width):
                 for j in range(self.height):
@@ -589,12 +626,16 @@ class Exploding_bricks(Objects):
         elif (self.position_x+1 == global_variables.main_ball.position_x and self.position_y == global_variables.main_ball.position_y) :
             self.strength = 0
             explosion_coor(self.position_x,self.position_y)
+            # self.onetimetempflag = 1
+            global_variables.exploding_bricks_flag = 1
             for i in range(self.width):
                 for j in range(self.height):
                     global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ' '
         elif (self.position_x+2 == global_variables.main_ball.position_x and self.position_y == global_variables.main_ball.position_y) :
             self.strength = 0
             explosion_coor(self.position_x,self.position_y)
+            # self.onetimetempflag = 1
+            global_variables.exploding_bricks_flag = 1
             for i in range(self.width):
                 for j in range(self.height):
                     global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ' '
@@ -743,6 +784,7 @@ def levelskip():
     global_variables.bricks = global_variables.make_bricks()
 
     global_variables.explosion_coordinates = []
+    global_variables.fire_ball_list = []
 
     global_variables.flag = 0
     global_variables.main_paddle.position_x=5
@@ -769,6 +811,7 @@ def take_down_bricks():
     #     k=tuple(temp)
 
     global_variables.fire_ball_list = []
+    global_variables.explosion_coordinates = []
 
     for i in global_variables.bricks:
         for j in i:

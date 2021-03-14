@@ -9,8 +9,13 @@ columns = 100
 rows = 40
 
 paddle = [['T','T','T','T','T'], ['T','T','T','T','T'] ]
+paddle_shooting = [['|','T','T','T','|'], ['/','T','T','T','\\'] ]
+
 shrink_p = [['T','T','T'], ['T','T','T'] ]
+shrink_p_shooting = [['|','T','|'], ['/','T','\\'] ]
+
 expand_p = [['T','T','T','T','T','T'], ['T','T','T','T','T','T' ]]
+expand_p_shooting = [['|','T','T','T','T','|'], ['/','T','T','T','T','\\' ]]
 
 lives = 100
 score = 0
