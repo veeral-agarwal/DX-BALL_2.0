@@ -599,6 +599,70 @@ class Exploding_bricks(Objects):
                 for j in range(self.height):
                     global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ' '
 
+class Rainbow_bricks(Objects):
+    def __init__(self , obj , xpos , ypos):
+        super().__init__(obj , xpos , ypos)
+        self.collisionhappened = 0
+        self.weight = 1
+
+    def collision_ball_brick(self):
+        if (self.position_x == global_variables.main_ball.position_x and self.position_y == global_variables.main_ball.position_y) :
+            # explosion_coor(self.position_x,self.position_y)
+            self.weight -= 1
+            self.collisionhappened = 1
+            if self.weight >0:
+                global_variables.main_ball.speed_y *= -1
+            # for i in range(self.width):
+            #     for j in range(self.height):
+            #         global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ' '
+        elif (self.position_x+1 == global_variables.main_ball.position_x and self.position_y == global_variables.main_ball.position_y) :
+            self.weight -= 1
+            self.collisionhappened = 1
+            if self.weight >0:
+                global_variables.main_ball.speed_y *= -1
+            # explosion_coor(self.position_x,self.position_y)
+            # for i in range(self.width):
+            #     for j in range(self.height):
+            #         global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ' '
+        elif (self.position_x+2 == global_variables.main_ball.position_x and self.position_y == global_variables.main_ball.position_y) :
+            self.weight -= 1
+            self.collisionhappened = 1
+            if self.weight >0:
+                global_variables.main_ball.speed_y *= -1
+            # explosion_coor(self.position_x,self.position_y)
+            # for i in range(self.width):
+            #     for j in range(self.height):
+            #         global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ' '
+
+    def render(self):
+        if self.collisionhappened == 0:
+            self.weight = random.randint(1,3)
+        for i in range(self.width):
+            for j in range(self.height):
+                if (self.weight > 0) and ((self.position_x,self.position_y) not in global_variables.explosion_coordinates):
+                    if(self.position_x,self.position_y) not in global_variables.fire_ball_list :
+                        if self.weight == 1:
+                            global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ( Back.BLUE + Fore.BLUE + self.shape[j][i] )
+                        
+                        elif self.weight == 2:
+                            global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ( Fore.GREEN + Back.GREEN  + self.shape[j][i])
+                        
+                        elif self.weight == 3:
+                            global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ( Fore.RED +  Back.RED + self.shape[j][i] )
+                        
+                        elif self.weight == 4:
+                            global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ( Fore.MAGENTA +  Back.MAGENTA + self.shape[j][i] )
+
+                        elif self.weight == np.inf:
+                            global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ( Fore.WHITE +  Back.WHITE + self.shape[j][i]  )
+                    else:
+                        self.weight = 0
+                        global_variables.main_board.matrix[j+self.position_y][i+self.position_x] =' '    
+                else:
+                    self.weight = 0
+                    global_variables.main_board.matrix[j+self.position_y][i+self.position_x] =' '
+
+
 class Powerup(Objects):
     
     def __init__(self,obj,xpos,ypos , power):

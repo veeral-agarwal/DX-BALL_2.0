@@ -21,6 +21,8 @@ main_paddle = Paddle(paddle , 5 , 35 ,lives)
 
 main_ball = Ball(ball , 5 , 34)
 
+rainbow_b = Rainbow_bricks(brick , 10,20)
+
 bricks_coor = []
 bricks1 = []
 bricks2 = []
@@ -122,6 +124,9 @@ def render_all_bricks():
                 i.clear()
                 i.render()
                 i.collision_ball_brick()
+    rainbow_b.clear()
+    rainbow_b.render()
+    rainbow_b.collision_ball_brick()
 
     
 def powerup_top_string():
