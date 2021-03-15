@@ -35,6 +35,7 @@ if __name__ == "__main__":
                 objects.levelskip()
                 global_variables.level1starttime = time.time()
             elif global_variables.level == 2 :
+                global_variables.level2starttime = time.time()
                 objects.levelskip()
             else:
                 break

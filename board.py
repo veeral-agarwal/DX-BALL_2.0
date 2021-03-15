@@ -21,6 +21,7 @@ class Board():
         print("you have 200 seconds in game and 5 lives.")
         print(" 'q' for quit , 'a' and 'd' for moving paddle left and right resp. , 'x' for shoot the ball ")
         print("lives left:",config.lives,"   score:" , config.score+global_variables.explosion_score() , "     time till now:",int(global_variables.total_time) , "level: ", global_variables.level)
+        print("health of ufo : ", global_variables.main_ufo.lives)
         global_variables.powerup_top_string()
         for y in range( self.height):          
             lol = []

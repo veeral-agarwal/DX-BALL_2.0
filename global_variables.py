@@ -10,6 +10,7 @@ brick_falldown_flag = 0
 exploding_bricks_flag = 0
 level0starttime = 0
 level1starttime = 0
+level2starttime = 0
 
 ball_privious_speed_y = 1
 ball_privious_speed_x = 0
@@ -22,13 +23,14 @@ main_paddle = Paddle(paddle , 5 , 35 ,lives)
 
 main_ball = Ball(ball , 5 , 34)
 
+main_ufo = UFO(ufo_design , 10,5)
 # rainbow_b = Rainbow_bricks(brick , 10,9)
 
 rainbow_brick_list = []
 bricks_coor = []
 bricks1 = []
 bricks2 = []
-bricks3 = []
+bricks3 = [] 
 bricks4 = []
 bricks5 = []
 exp_brick = []
@@ -65,7 +67,7 @@ def make_bricks():
     #         else:
     #             bricks5.append(Brick(brick ,i+5,7 , randomizer() , 8 ))
             # bricks_coor.append((i+5 , 9))
-    # if global_variables.level == 1:
+    if global_variables.level == 1:
         bricks_coor = []
         bricks1 = []
         bricks2 = []
@@ -88,6 +90,20 @@ def make_bricks():
             else:
                 bricks5.append(Brick(brick ,i+5,7 , randomizer() , 8 ))
             bricks_coor.append((i+5 , 9))
+        bricks = [bricks1 , bricks2 , bricks3, bricks5 , bricks4 ,exp_brick, rainbow_brick_list ]
+        return bricks
+    elif global_variables.level == 2:
+        bricks_coor = []
+        bricks1 = []
+        bricks2 = []
+        bricks3 = []
+        bricks4 = []
+        bricks5 = []
+        exp_brick = []
+        bricks = []
+        rainbow_brick_list = []
+        for i in range(0,90,10):
+            bricks1.append(Brick(brick , i+5,9 , np.inf , 8 ))
         bricks = [bricks1 , bricks2 , bricks3, bricks5 , bricks4 ,exp_brick, rainbow_brick_list ]
         return bricks
 
@@ -181,10 +197,14 @@ def render_all_components():
     render_inair_powerup()
     main_paddle.render()
     main_board.render()
+    if global_variables.level == 2:
+        main_ufo.clear()
+        main_ufo.render()
 
 def clear_components():
     main_paddle.clear()
     main_ball.clear()
+    
     sys.stdout.write("\033c")
         
 def check_powerup_timer():

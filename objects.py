@@ -706,6 +706,25 @@ class Rainbow_bricks(Objects):
                     self.weight = 0
                     global_variables.main_board.matrix[j+self.position_y][i+self.position_x] =' '
 
+class UFO(Objects):
+    def __init__(self,obj,xpos,ypos):
+        super().__init__(obj,xpos,ypos)
+        self.position_x = xpos
+        self.position_y = ypos
+        self.lives = 10
+
+    def collision_with_ball(self):
+        if global_variables.main_ball.position_y == self.position_y or global_variables.main_ball.position_y == self.position_y+1:
+            if global_variables.main_ball.position_x>=self.position_x and global_variables.main_ball.position_x <=self.position_x+4:
+                self.lives-=1
+                global_variables.main_ball.speed_y*=-1
+                
+    def render(self):
+        self.collision_with_ball()
+        self.position_x = global_variables.main_paddle.position_x
+        for i in range(self.width):
+            for j in range(self.height):
+                global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = self.shape[j][i]
 
 class Powerup(Objects):
     
@@ -844,4 +863,7 @@ def take_down_bricks():
                 elif global_variables.level == 1:
                     if (round(time()) - global_variables.level1starttime>10):
                         j.position_y += 0
-                        
+                
+                elif global_variables.level == 2:
+                    if round(time()) - global_variables.level2starttime > 15:
+                        j.position_y += 1
