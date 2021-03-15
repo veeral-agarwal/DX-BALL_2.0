@@ -649,27 +649,30 @@ class Rainbow_bricks(Objects):
     def collision_ball_brick(self):
         if (self.position_x == global_variables.main_ball.position_x and self.position_y == global_variables.main_ball.position_y) :
             # explosion_coor(self.position_x,self.position_y)
-            self.weight -= 1
+            
             self.collisionhappened = 1
             if self.weight >0:
                 global_variables.main_ball.speed_y *= -1
+            self.weight -= 1
             # for i in range(self.width):
             #     for j in range(self.height):
             #         global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ' '
         elif (self.position_x+1 == global_variables.main_ball.position_x and self.position_y == global_variables.main_ball.position_y) :
-            self.weight -= 1
+            
             self.collisionhappened = 1
             if self.weight >0:
                 global_variables.main_ball.speed_y *= -1
+            self.weight -= 1
             # explosion_coor(self.position_x,self.position_y)
             # for i in range(self.width):
             #     for j in range(self.height):
             #         global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ' '
         elif (self.position_x+2 == global_variables.main_ball.position_x and self.position_y == global_variables.main_ball.position_y) :
-            self.weight -= 1
+            
             self.collisionhappened = 1
             if self.weight >0:
                 global_variables.main_ball.speed_y *= -1
+            self.weight -= 1
             # explosion_coor(self.position_x,self.position_y)
             # for i in range(self.width):
             #     for j in range(self.height):
@@ -821,9 +824,9 @@ def take_down_bricks():
             else:
                 if global_variables.level == 0:
                     if round(time()) - global_variables.level0starttime >15:
-                        j.position_y += 1
+                        j.position_y += 0
                         
                 elif global_variables.level == 1:
                     if (round(time()) - global_variables.level1starttime>10):
-                        j.position_y += 1
+                        j.position_y += 0
                         
