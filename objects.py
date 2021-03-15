@@ -711,17 +711,24 @@ class UFO(Objects):
         super().__init__(obj,xpos,ypos)
         self.position_x = xpos
         self.position_y = ypos
-        self.lives = 10
+        self.lives = 15
 
     def collision_with_ball(self):
         if global_variables.main_ball.position_y == self.position_y or global_variables.main_ball.position_y == self.position_y+1:
             if global_variables.main_ball.position_x>=self.position_x and global_variables.main_ball.position_x <=self.position_x+4:
                 self.lives-=1
+                if self.lives == 10 :
+                    for i in range(0,90,3):
+                        global_variables.b1.append(Brick(config.brick,i+3,8,random.randint(1,3),8))
+                if self.lives == 5:
+                    for i in range(0,90,3):
+                        global_variables.b2.append(Brick(config.brick,i+3,9,random.randint(1,3),8))
                 global_variables.main_ball.speed_y*=-1
                 
     def render(self):
         self.collision_with_ball()
         self.position_x = global_variables.main_paddle.position_x
+        
         for i in range(self.width):
             for j in range(self.height):
                 global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = self.shape[j][i]
@@ -866,4 +873,4 @@ def take_down_bricks():
                 
                 elif global_variables.level == 2:
                     if round(time()) - global_variables.level2starttime > 15:
-                        j.position_y += 1
+                        j.position_y += 0

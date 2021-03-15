@@ -4,6 +4,9 @@ from config import *
 import random
 import numpy as np
 
+b1=[]
+b2=[]
+stable_level2_bricks = [b1,b2]
 
 level = 0
 brick_falldown_flag = 0
@@ -103,7 +106,8 @@ def make_bricks():
         bricks = []
         rainbow_brick_list = []
         for i in range(0,90,10):
-            bricks1.append(Brick(brick , i+5,9 , np.inf , 8 ))
+            bricks1.append(Brick(brick , i+5,7 , np.inf , 8 ))
+        
         bricks = [bricks1 , bricks2 , bricks3, bricks5 , bricks4 ,exp_brick, rainbow_brick_list ]
         return bricks
 
@@ -145,6 +149,11 @@ def render_all_bricks():
                 i.clear()
                 i.render()
                 i.collision_ball_brick()
+    for i in stable_level2_bricks:
+        for j in i:
+            j.clear()
+            j.render()
+            j.collision_ball_brick()
     
 
     
