@@ -22,8 +22,9 @@ main_paddle = Paddle(paddle , 5 , 35 ,lives)
 
 main_ball = Ball(ball , 5 , 34)
 
-rainbow_b = Rainbow_bricks(brick , 10,20)
+# rainbow_b = Rainbow_bricks(brick , 10,9)
 
+rainbow_brick_list = []
 bricks_coor = []
 bricks1 = []
 bricks2 = []
@@ -31,7 +32,7 @@ bricks3 = []
 bricks4 = []
 bricks5 = []
 exp_brick = []
-bricks = [bricks1 , bricks2 , bricks3, bricks5 , bricks4 , exp_brick ]
+bricks = [bricks1 , bricks2 , bricks3, bricks5 , bricks4 , exp_brick , rainbow_brick_list ]
 
 def randomizer():
     if random.randint(1,4)==1: 
@@ -41,6 +42,7 @@ def randomizer():
         return random.randint(1,3)
 
 for i in range(0 , 90 , 3):
+    rainbow_brick_list.append(Rainbow_bricks(brick , i+5 , 4))
     bricks4.append(Brick(brick , i+5,5 ,randomizer() , 8 ))
     bricks1.append(Brick(brick , i+5,6 , randomizer() , 8 )) 
     bricks2.append(Brick(brick , i+5,10 , randomizer() , random.randint(7,7) ))
@@ -72,9 +74,11 @@ def make_bricks():
         bricks5 = []
         exp_brick = []
         bricks = []
+        rainbow_brick_list = []
         # bricks = [bricks1 , bricks2 , bricks3, bricks5 , bricks4 ,exp_brick ]
 
         for i in range(0 , 90 , 3):
+            rainbow_brick_list.append(Rainbow_bricks(brick , i+5 , 11))
             bricks4.append(Brick(brick , i+5,4 ,randomizer() , 8 ))
             bricks1.append(Brick(brick , i+5,6 , randomizer() , 8 )) 
             bricks2.append(Brick(brick , i+5,9 , randomizer() , random.randint(7,7) ))
@@ -84,7 +88,7 @@ def make_bricks():
             else:
                 bricks5.append(Brick(brick ,i+5,7 , randomizer() , 8 ))
             bricks_coor.append((i+5 , 9))
-        bricks = [bricks1 , bricks2 , bricks3, bricks5 , bricks4 ,exp_brick ]
+        bricks = [bricks1 , bricks2 , bricks3, bricks5 , bricks4 ,exp_brick, rainbow_brick_list ]
         return bricks
 
 fire_ball_list = []
@@ -125,9 +129,7 @@ def render_all_bricks():
                 i.clear()
                 i.render()
                 i.collision_ball_brick()
-    rainbow_b.clear()
-    rainbow_b.render()
-    rainbow_b.collision_ball_brick()
+    
 
     
 def powerup_top_string():

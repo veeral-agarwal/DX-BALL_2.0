@@ -380,31 +380,31 @@ class Brick(Objects):
                 if self.weight == 1:
                     config.score += 1  
                     if self.contain_powerup == 5:
-                        global_variables.powerup_objects.append(Powerup(config.thru_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.thru_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1
 
                     if self.contain_powerup == 4:
-                        global_variables.powerup_objects.append(Powerup(config.shrink_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.shrink_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1 
 
                     if self.contain_powerup == 1:
-                        global_variables.powerup_objects.append(Powerup(config.expand_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.expand_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                     if self.contain_powerup == 2:
-                        global_variables.powerup_objects.append(Powerup(config.fast_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.fast_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                     if self.contain_powerup == 3:
-                        global_variables.powerup_objects.append(Powerup(config.paddle_grab , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.paddle_grab , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                     if self.contain_powerup == 6:
-                        global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1  
                 
                     if self.contain_powerup == 7:
-                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                 global_variables.main_paddle.score += 1
@@ -412,27 +412,27 @@ class Brick(Objects):
                     self.weight = 0
                     config.score += 1   
                     if self.contain_powerup == 5:
-                        global_variables.powerup_objects.append(Powerup(config.thru_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.thru_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
 
                     if self.contain_powerup == 4:
-                        global_variables.powerup_objects.append(Powerup(config.shrink_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.shrink_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         # global_variables.inair_powerupflag[self.contain_powerup] = 1
 
                     if self.contain_powerup == 1:
-                        global_variables.powerup_objects.append(Powerup(config.expand_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.expand_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
 
                     if self.contain_powerup == 2:
-                        global_variables.powerup_objects.append(Powerup(config.fast_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.fast_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                 
                     if self.contain_powerup == 3:
-                        global_variables.powerup_objects.append(Powerup(config.paddle_grab , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.paddle_grab , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
 
                     if self.contain_powerup == 6:
-                        global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         # global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                     if self.contain_powerup == 7:
-                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         # global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                 else:
@@ -448,31 +448,31 @@ class Brick(Objects):
                 if self.weight == 1:
                     config.score += 1   
                     if self.contain_powerup == 5:
-                        global_variables.powerup_objects.append(Powerup(config.thru_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.thru_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1 
 
                     if self.contain_powerup == 4:
-                        global_variables.powerup_objects.append(Powerup(config.shrink_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.shrink_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1
                 
                     if self.contain_powerup == 1:
-                        global_variables.powerup_objects.append(Powerup(config.expand_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.expand_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1
 
                     if self.contain_powerup == 2:
-                        global_variables.powerup_objects.append(Powerup(config.fast_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.fast_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1
                     
                     if self.contain_powerup == 3:
-                        global_variables.powerup_objects.append(Powerup(config.paddle_grab , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.paddle_grab , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                     if self.contain_powerup == 6:
-                        global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                     if self.contain_powerup == 7:
-                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                 global_variables.main_paddle.score += 1
@@ -480,27 +480,27 @@ class Brick(Objects):
                     self.weight = 0
                     config.score += 1   
                     if self.contain_powerup == 5:
-                        global_variables.powerup_objects.append(Powerup(config.thru_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.thru_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
 
                     if self.contain_powerup == 4:
-                        global_variables.powerup_objects.append(Powerup(config.shrink_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.shrink_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
                         # global_variables.inair_powerupflag[self.contain_powerup] = 1
                     
                     if self.contain_powerup == 1:
-                        global_variables.powerup_objects.append(Powerup(config.expand_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.expand_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
                     
                     if self.contain_powerup == 2:
-                        global_variables.powerup_objects.append(Powerup(config.fast_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.fast_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
 
                     if self.contain_powerup == 3:
-                        global_variables.powerup_objects.append(Powerup(config.paddle_grab , self.position_x , self.position_y , self.contain_powerup))  
+                        global_variables.powerup_objects.append(Powerup(config.paddle_grab , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))  
 
                     if self.contain_powerup == 6:
-                        global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
                         # global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                     if self.contain_powerup == 7:
-                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
                         # global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                 else:
@@ -529,31 +529,31 @@ class Brick(Objects):
                 if self.weight == 1:
                     config.score += 1  
                     if self.contain_powerup == 5:
-                        global_variables.powerup_objects.append(Powerup(config.thru_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.thru_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1 
 
                     if self.contain_powerup == 4:
-                        global_variables.powerup_objects.append(Powerup(config.shrink_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.shrink_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1
 
                     if self.contain_powerup == 1:
-                        global_variables.powerup_objects.append(Powerup(config.expand_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.expand_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1
 
                     if self.contain_powerup == 2:
-                        global_variables.powerup_objects.append(Powerup(config.fast_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.fast_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1
 
                     if self.contain_powerup == 3:
-                        global_variables.powerup_objects.append(Powerup(config.paddle_grab , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.paddle_grab , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                     if self.contain_powerup == 6:
-                        global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                     if self.contain_powerup == 7:
-                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                 global_variables.main_paddle.score += 1
@@ -561,27 +561,27 @@ class Brick(Objects):
                     self.weight = 0
                     config.score += 1   
                     if self.contain_powerup == 5:
-                        global_variables.powerup_objects.append(Powerup(config.thru_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.thru_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
 
                     if self.contain_powerup == 4:
-                        global_variables.powerup_objects.append(Powerup(config.shrink_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.shrink_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
                         # global_variables.inair_powerupflag[self.contain_powerup] = 1
 
                     if self.contain_powerup == 1:
-                        global_variables.powerup_objects.append(Powerup(config.expand_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.expand_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
                     
                     if self.contain_powerup == 2:
-                        global_variables.powerup_objects.append(Powerup(config.fast_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.fast_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
 
                     if self.contain_powerup == 3:
-                        global_variables.powerup_objects.append(Powerup(config.paddle_grab , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.paddle_grab , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
 
                     if self.contain_powerup == 6:
-                        global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.fire_ball , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
                         # global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                     if self.contain_powerup == 7:
-                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y , self.contain_powerup))
+                        global_variables.powerup_objects.append(Powerup(config.shooting_paddle , self.position_x , self.position_y-2 , self.contain_powerup , global_variables.main_ball.speed_x ))
                         global_variables.inair_powerupflag[self.contain_powerup] = 1  
 
                 else:
@@ -709,22 +709,37 @@ class Rainbow_bricks(Objects):
 
 class Powerup(Objects):
     
-    def __init__(self,obj,xpos,ypos , power):
+    def __init__(self,obj,xpos,ypos , power,velx):
         super().__init__(obj,xpos,ypos)
         self.speed_y = -1
         self.contain_powerup = power
         self.speed_flag = 0
+        self.speed_x = velx
 
     def render(self):
         if self.speed_flag == 0:
             # self.shape = [[' ']]
             self.position_y -= self.speed_y
+            self.position_x += self.speed_x
         
+        self.collision_with_wall()
         self.collision_with_paddle()
         for i in range(self.width):
             for j in range(self.height):
                 global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = (self.shape[j][i])
     
+    def collision_with_wall(self):
+        if self.position_x + self.speed_x<=2 or self.position_x+self.speed_x>=96:
+            self.speed_x *= -1
+        
+        if self.position_y <=4:
+            self.speed_y *= -1
+        
+        elif self.position_y + self.speed_y>=37:
+            # default()
+            self.speed_x = 0
+            self.speed_y = 0
+
     def collision_with_paddle(self):
         # if (global_variables.active_powerupflag[1] == 1 and global_variables.active_powerupflag[4] == 1) or (global_variables.active_powerupflag[1] == 0 and global_variables.active_powerupflag[4] == 0):
         if self.position_y == 35 or self.position_y == 36:
