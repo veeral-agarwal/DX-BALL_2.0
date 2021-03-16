@@ -13,9 +13,6 @@ if __name__ == "__main__":
         clear_components()
         check_powerup_timer()
         val = input_to(obj1)
-        
-        
-
         if global_variables.brick_falldown_flag == 1:
             break
 
