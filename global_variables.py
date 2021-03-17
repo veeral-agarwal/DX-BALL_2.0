@@ -28,6 +28,9 @@ main_ball = Ball(ball , 5 , 34)
 
 main_ufo = UFO(ufo_design , 10,5)
 main_bomb_1 = Bomb(bomb,global_variables.main_ufo.position_x , global_variables.main_ufo.position_y)
+
+main_bullet = Bullet(bullet , global_variables.main_paddle.position_x , global_variables.main_paddle.position_y)
+
 # main_bomb_2 = Bomb(bomb , global_variables.main_ufo.position_x+4 , global_variables.main_ufo.position_y)
 # rainbow_b = Rainbow_bricks(brick , 10,9)
 
@@ -52,7 +55,7 @@ for i in range(0 , 90 , 3):
     rainbow_brick_list.append(Rainbow_bricks(brick , i+5 , 5))
     bricks4.append(Brick(brick , i+5,6 ,randomizer() , 8 ))
     bricks1.append(Brick(brick , i+5,7 , randomizer() , 8 )) 
-    bricks2.append(Brick(brick , i+5,11 , randomizer() , random.randint(6,6) ))
+    bricks2.append(Brick(brick , i+5,11 , randomizer() , random.randint(7,7) ))
     bricks3.append(Brick(brick , i+5,9 , randomizer() , 8 ))
     if i >20 and i<45:
         exp_brick.append(Exploding_bricks(exploding , i+5 , 8)) 
@@ -208,6 +211,12 @@ def render_all_components():
     render_inair_powerup()
     main_paddle.render()
     main_board.render()
+    if active_powerupflag[7] == 1:
+        main_bullet.clear()
+        main_bullet.render()
+    else:
+        main_bullet.shape = [[' ']]
+        # print("lol")
     if global_variables.level == 2:
         main_ufo.clear()
         main_ufo.render()

@@ -772,6 +772,31 @@ class Bomb(Objects):
             self.speed_y = 0
             self.speed_flag = 1
 
+class Bullet(Objects):
+    def __init__(self,obj,xpos,ypos):
+        super().__init__(obj,xpos,ypos)
+        self.speed_y = 1
+        self.speed_flag = 0
+
+    def render(self):
+        lol = time()
+        if self.position_y <5:
+            self.speed_y = 0
+            self.shape = [[' ']]
+            self.speed_flag = 1
+        if (int)(lol) % 5 == 0:
+            self.position_x = global_variables.main_paddle.position_x
+            self.position_y = global_variables.main_paddle.position_y
+            self.speed_y = 1
+            self.speed_flag = 0
+            self.shape = [['$']]
+        if self.speed_flag == 0:
+            self.position_y -= self.speed_y
+        # self.collision_with_paddle()
+        for i in range(self.width):
+            for j in range(self.height):
+                global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = self.shape[j][i]
+
 class Powerup(Objects):
     
     def __init__(self,obj,xpos,ypos , power,velx):
