@@ -27,6 +27,8 @@ main_paddle = Paddle(paddle , 5 , 35 ,lives)
 main_ball = Ball(ball , 5 , 34)
 
 main_ufo = UFO(ufo_design , 10,5)
+main_bomb_1 = Bomb(bomb,global_variables.main_ufo.position_x , global_variables.main_ufo.position_y)
+# main_bomb_2 = Bomb(bomb , global_variables.main_ufo.position_x+4 , global_variables.main_ufo.position_y)
 # rainbow_b = Rainbow_bricks(brick , 10,9)
 
 rainbow_brick_list = []
@@ -47,15 +49,15 @@ def randomizer():
         return random.randint(1,3)
 
 for i in range(0 , 90 , 3):
-    rainbow_brick_list.append(Rainbow_bricks(brick , i+5 , 4))
-    bricks4.append(Brick(brick , i+5,5 ,randomizer() , 8 ))
-    bricks1.append(Brick(brick , i+5,6 , randomizer() , 8 )) 
-    bricks2.append(Brick(brick , i+5,10 , randomizer() , random.randint(7,7) ))
-    bricks3.append(Brick(brick , i+5,8 , randomizer() , 8 ))
+    rainbow_brick_list.append(Rainbow_bricks(brick , i+5 , 5))
+    bricks4.append(Brick(brick , i+5,6 ,randomizer() , 8 ))
+    bricks1.append(Brick(brick , i+5,7 , randomizer() , 8 )) 
+    bricks2.append(Brick(brick , i+5,11 , randomizer() , random.randint(6,6) ))
+    bricks3.append(Brick(brick , i+5,9 , randomizer() , 8 ))
     if i >20 and i<45:
-        exp_brick.append(Exploding_bricks(exploding , i+5 , 7)) 
+        exp_brick.append(Exploding_bricks(exploding , i+5 , 8)) 
     else:
-        bricks5.append(Brick(brick ,i+5,7 , randomizer() , 8 ))
+        bricks5.append(Brick(brick ,i+5,8 , randomizer() , 8 ))
     bricks_coor.append((i+5 , 9))
 
 def make_bricks():
@@ -83,10 +85,10 @@ def make_bricks():
         # bricks = [bricks1 , bricks2 , bricks3, bricks5 , bricks4 ,exp_brick ]
 
         for i in range(0 , 90 , 3):
-            rainbow_brick_list.append(Rainbow_bricks(brick , i+5 , 11))
-            bricks4.append(Brick(brick , i+5,4 ,randomizer() , 8 ))
+            rainbow_brick_list.append(Rainbow_bricks(brick , i+5 , 12))
+            bricks4.append(Brick(brick , i+5,5 ,randomizer() , 8 ))
             bricks1.append(Brick(brick , i+5,6 , randomizer() , 8 )) 
-            bricks2.append(Brick(brick , i+5,9 , randomizer() , random.randint(7,7) ))
+            bricks2.append(Brick(brick , i+5,10 , randomizer() , random.randint(7,7) ))
             bricks3.append(Brick(brick , i+5,8 , randomizer() , 8 ))
             if i >20 and i<45:
                 exp_brick.append(Exploding_bricks(exploding , i+5 , 7)) 
@@ -209,6 +211,10 @@ def render_all_components():
     if global_variables.level == 2:
         main_ufo.clear()
         main_ufo.render()
+        main_bomb_1.clear()
+        main_bomb_1.render()
+        # main_bomb_2.clear()
+        # main_bomb_2.render()
 
 def clear_components():
     main_paddle.clear()

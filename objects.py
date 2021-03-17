@@ -733,6 +733,45 @@ class UFO(Objects):
             for j in range(self.height):
                 global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = self.shape[j][i]
 
+class Bomb(Objects):
+    def __init__(self,obj,xpos,ypos):
+        super().__init__(obj,xpos,ypos)
+        self.speed_y = -1
+        self.speed_flag = 0
+
+    def render(self):
+        lol = time()
+        if (int)(lol) % 5 == 0:
+            self.position_x = global_variables.main_ufo.position_x
+            self.position_y = global_variables.main_ufo.position_y
+            self.speed_y = -1
+            self.speed_flag = 0
+            self.shape = [['0']]
+        if self.speed_flag == 0:
+            self.position_y -= self.speed_y
+        self.collision_with_paddle()
+        for i in range(self.width):
+            for j in range(self.height):
+                global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = self.shape[j][i]
+
+    def collision_with_paddle(self):
+        # def collision_with_paddle(self):
+            # if (global_variables.active_powerupflag[1] == 1 and global_variables.active_powerupflag[4] == 1) or (global_variables.active_powerupflag[1] == 0 and global_variables.active_powerupflag[4] == 0):
+        if self.position_y == 35 or self.position_y == 36:
+            if self.position_x <= global_variables.main_paddle.position_x+global_variables.main_paddle.width and self.position_x >= global_variables.main_paddle.position_x:        
+                self.speed_flag = 1
+                # print(self.speed_y)
+                self.position_y = 2
+                # global_variables.active_powerupflag[self.contain_powerup] = 1
+                # global_variables.powerup_start_time[self.contain_powerup] = time()
+                # global_variables.inair_powerupflag[self.contain_powerup] = 0
+                self.shape = [[' ']]
+                config.lives -= 1
+        
+        if self.position_y > 36:
+            self.speed_y = 0
+            self.speed_flag = 1
+
 class Powerup(Objects):
     
     def __init__(self,obj,xpos,ypos , power,velx):
