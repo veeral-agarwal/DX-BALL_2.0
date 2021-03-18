@@ -587,6 +587,22 @@ class Brick(Objects):
                 else:
                     self.weight -= 1
 
+            elif (self.position_x == global_variables.main_bullet.position_x and self.position_y == global_variables.main_bullet.position_y) or (self.position_x+1 == global_variables.main_bullet.position_x and self.position_y == global_variables.main_bullet.position_y) or (self.position_x+2 == global_variables.main_bullet.position_x and self.position_y == global_variables.main_bullet.position_y) :
+                
+                if self.weight==1:
+                    self.weight-=1
+                    config.score += 1     
+                    global_variables.main_bullet.speed_y = 0
+                    global_variables.main_bullet.shape = [[' ']]
+                    global_variables.main_bullet.position_y = 4
+                elif self.weight>1:
+                    self.weight-=1
+                    global_variables.main_bullet.speed_y = 0
+                    global_variables.main_bullet.shape = [[' ']]
+                    global_variables.main_bullet.position_y = 4
+                
+
+
 class Exploding_bricks(Objects):
     def __init__(self , obj , xpos , ypos):
         super().__init__(obj , xpos , ypos)
@@ -677,7 +693,23 @@ class Rainbow_bricks(Objects):
             # for i in range(self.width):
             #     for j in range(self.height):
             #         global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ' '
-
+        elif (self.position_x == global_variables.main_bullet.position_x and self.position_y == global_variables.main_bullet.position_y) or (self.position_x+1 == global_variables.main_bullet.position_x and self.position_y == global_variables.main_bullet.position_y) or (self.position_x+2 == global_variables.main_bullet.position_x and self.position_y == global_variables.main_bullet.position_y) :
+            if self.weight==1:
+                # self.weight-=1
+                config.score += 1     
+                global_variables.main_bullet.speed_y = 0
+                global_variables.main_bullet.shape = [[' ']]
+                global_variables.main_bullet.position_y = 4
+            elif self.weight>1:
+                # self.weight-=1
+                global_variables.main_bullet.speed_y = 0
+                global_variables.main_bullet.shape = [[' ']]
+                global_variables.main_bullet.position_y = 4
+            self.collisionhappened = 1
+            if self.weight >0:
+                global_variables.main_ball.speed_y *= -1
+            self.weight -= 1
+            
     def render(self):
         if self.collisionhappened == 0:
             self.weight = random.randint(1,3)
