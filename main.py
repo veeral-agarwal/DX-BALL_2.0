@@ -9,7 +9,11 @@ import objects
 if __name__ == "__main__":
     obj1 = Get()
     global_variables.flag = 0
+    brickfalldownstarter = 0
     while(1):
+        if brickfalldownstarter == 0:
+            brickfalldownstarter = 1
+            global_variables.level0starttime = time.time()
         clear_components()
         check_powerup_timer()
         val = input_to(obj1)
@@ -22,6 +26,7 @@ if __name__ == "__main__":
             break
         elif val == 'x':   
             shoot()
+            
         elif val == 'a':
             move_left()
         elif val == 'd':

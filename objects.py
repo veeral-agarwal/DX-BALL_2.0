@@ -975,12 +975,12 @@ def take_down_bricks():
             else:
                 if global_variables.level == 0:
                     if round(time()) - global_variables.level0starttime >15:
-                        j.position_y += 0
+                        j.position_y += 1
                         
                 elif global_variables.level == 1:
                     if (round(time()) - global_variables.level1starttime>10):
-                        j.position_y += 0
+                        j.position_y += 1
                 
                 elif global_variables.level == 2:
                     if round(time()) - global_variables.level2starttime > 15:
-                        j.position_y += 0
+                        j.position_y += 1

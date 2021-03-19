@@ -211,7 +211,7 @@ def render_all_components():
     render_inair_powerup()
     main_paddle.render()
     main_board.render()
-    if active_powerupflag[7] == 0:
+    if active_powerupflag[7] == 1:
         main_bullet.clear()
         main_bullet.render()
     else:
