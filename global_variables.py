@@ -55,7 +55,7 @@ for i in range(0 , 90 , 3):
     rainbow_brick_list.append(Rainbow_bricks(brick , i+5 , 5))
     bricks4.append(Brick(brick , i+5,6 ,randomizer() , 8 ))
     bricks1.append(Brick(brick , i+5,7 , randomizer() , 8 )) 
-    bricks2.append(Brick(brick , i+5,11 , randomizer() , random.randint(7,7) ))
+    bricks2.append(Brick(brick , i+5,11 , randomizer() , random.randint(0,7) ))
     bricks3.append(Brick(brick , i+5,9 , randomizer() , 8 ))
     if i >20 and i<45:
         exp_brick.append(Exploding_bricks(exploding , i+5 , 8)) 
