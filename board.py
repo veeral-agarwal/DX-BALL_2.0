@@ -18,7 +18,7 @@ class Board():
         
     def render(self):
         global_variables.total_time = time()-self.begin_time
-        print("you have 200 seconds in game and 5 lives.")
+        print("you have 300 seconds in game and 5 lives.")
         print(" 'q' for quit , 'a' and 'd' for moving paddle left and right resp. , 'x' for shoot the ball ")
         print("lives left:",config.lives,"   score:" , config.score+global_variables.explosion_score() , "     time till now:",int(global_variables.total_time) , "level: ", global_variables.level)
         print("health of ufo : ", global_variables.main_ufo.lives)

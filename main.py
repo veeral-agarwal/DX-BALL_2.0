@@ -32,7 +32,8 @@ if __name__ == "__main__":
             move_left()
         elif val == 'd':
             move_right()
-        elif val == 'l':
+        elif val == 'l' or config.score == 1 or config.score == 360:
+            config.score+=1
             global_variables.level+=1
             if global_variables.level == 1:
                 objects.levelskip()

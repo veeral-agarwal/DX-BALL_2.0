@@ -7,6 +7,7 @@ import time
 from time import time,sleep
 import random
 import math
+import os
 
 class Objects():
 
@@ -137,6 +138,7 @@ class Ball(Objects):
         if (global_variables.active_powerupflag[1] == 1 and global_variables.active_powerupflag[4] == 1) or (global_variables.active_powerupflag[1] == 0 and global_variables.active_powerupflag[4] == 0):
             if self.position_y == 35 or self.position_y == 36:
                 if self.position_x == global_variables.main_paddle.position_x:
+                    os.system('aplay -q ./sounds/losinglife.wav&')
                     if global_variables.active_powerupflag[3] == 1:
                         global_variables.ball_privious_speed_x = self.speed_x
                         global_variables.ball_privious_speed_y = -1*self.speed_y
@@ -150,6 +152,7 @@ class Ball(Objects):
                         self.speed_x -= 2
                 
                 elif self.position_x == global_variables.main_paddle.position_x+1:
+                    os.system('aplay -q ./sounds/losinglife.wav&')
                     if global_variables.active_powerupflag[3] == 1:
                         global_variables.ball_privious_speed_x = self.speed_x
                         global_variables.ball_privious_speed_y = -1*self.speed_y
@@ -163,6 +166,7 @@ class Ball(Objects):
                         self.speed_x -= 1
                 
                 elif self.position_x == global_variables.main_paddle.position_x+2:
+                    os.system('aplay -q ./sounds/losinglife.wav&')
                     if global_variables.active_powerupflag[3] == 1:
                         global_variables.ball_privious_speed_x = self.speed_x
                         global_variables.ball_privious_speed_y = -1*self.speed_y
@@ -175,6 +179,7 @@ class Ball(Objects):
                         self.speed_y *= -1
                 
                 elif self.position_x == global_variables.main_paddle.position_x+3:
+                    os.system('aplay -q ./sounds/losinglife.wav&')
                     if global_variables.active_powerupflag[3] == 1:
                         global_variables.ball_privious_speed_x = self.speed_x
                         global_variables.ball_privious_speed_y = -1*self.speed_y
@@ -188,6 +193,7 @@ class Ball(Objects):
                         self.speed_x += 1
                 
                 elif self.position_x == global_variables.main_paddle.position_x+4:
+                    os.system('aplay -q ./sounds/losinglife.wav&')
                     if global_variables.active_powerupflag[3] == 1:
                         global_variables.ball_privious_speed_x = self.speed_x
                         global_variables.ball_privious_speed_y = -1*self.speed_y
@@ -203,6 +209,7 @@ class Ball(Objects):
         elif global_variables.active_powerupflag[4] == 1 and global_variables.active_powerupflag[1] == 0:
             if self.position_y == 35 or self.position_y == 36:
                 if self.position_x == global_variables.main_paddle.position_x:
+                    os.system('aplay -q ./sounds/losinglife.wav&')
                     if global_variables.active_powerupflag[3] == 1:
                         global_variables.ball_privious_speed_x = self.speed_x
                         global_variables.ball_privious_speed_y = -1*self.speed_y
@@ -216,6 +223,7 @@ class Ball(Objects):
                         self.speed_x -= -1
                     
                 elif self.position_x == global_variables.main_paddle.position_x+1:
+                    os.system('aplay -q ./sounds/losinglife.wav&')
                     if global_variables.active_powerupflag[3] == 1:
                         global_variables.ball_privious_speed_x = self.speed_x
                         global_variables.ball_privious_speed_y = -1*self.speed_y
@@ -229,6 +237,7 @@ class Ball(Objects):
                     # self.speed_x -= 1
                 
                 elif self.position_x == global_variables.main_paddle.position_x+2:
+                    os.system('aplay -q ./sounds/losinglife.wav&')
                     if global_variables.active_powerupflag[3] == 1:
                         global_variables.ball_privious_speed_x = self.speed_x
                         global_variables.ball_privious_speed_y = -1*self.speed_y
@@ -244,6 +253,7 @@ class Ball(Objects):
         elif global_variables.active_powerupflag[1] == 1 and global_variables.active_powerupflag[4] == 0: 
             if self.position_y == 35 or self.position_y == 36:
                 if self.position_x == global_variables.main_paddle.position_x:
+                    os.system('aplay -q ./sounds/losinglife.wav&')
                     if global_variables.active_powerupflag[3] == 1:
                         global_variables.ball_privious_speed_x = self.speed_x
                         global_variables.ball_privious_speed_y = -1*self.speed_y
@@ -257,6 +267,7 @@ class Ball(Objects):
                         self.speed_x -= 2
                 
                 elif self.position_x == global_variables.main_paddle.position_x+1:
+                    os.system('aplay -q ./sounds/losinglife.wav&')
                     if global_variables.active_powerupflag[3] == 1:
                         global_variables.ball_privious_speed_x = self.speed_x
                         global_variables.ball_privious_speed_y = -1*self.speed_y
@@ -270,6 +281,7 @@ class Ball(Objects):
                         self.speed_x -= 1
                 
                 elif self.position_x == global_variables.main_paddle.position_x+2:
+                    os.system('aplay -q ./sounds/losinglife.wav&')
                     if global_variables.active_powerupflag[3] == 1:
                         global_variables.ball_privious_speed_x = self.speed_x
                         global_variables.ball_privious_speed_y = -1*self.speed_y
@@ -282,6 +294,7 @@ class Ball(Objects):
                         self.speed_y *= -1
                 
                 elif self.position_x == global_variables.main_paddle.position_x+3:
+                    os.system('aplay -q ./sounds/losinglife.wav&')
                     if global_variables.active_powerupflag[3] == 1:
                         global_variables.ball_privious_speed_x = self.speed_x
                         global_variables.ball_privious_speed_y = -1*self.speed_y
@@ -295,6 +308,7 @@ class Ball(Objects):
                         self.speed_x += 1
                 
                 elif self.position_x == global_variables.main_paddle.position_x+4:
+                    os.system('aplay -q ./sounds/losinglife.wav&')
                     if global_variables.active_powerupflag[3] == 1:
                         global_variables.ball_privious_speed_x = self.speed_x
                         global_variables.ball_privious_speed_y = -1*self.speed_y
@@ -307,7 +321,8 @@ class Ball(Objects):
                         self.speed_y *= -1
                         self.speed_x +=2
 
-                elif self.position_x == global_variables.main_paddle.position_x+4:
+                elif self.position_x == global_variables.main_paddle.position_x+5:
+                    os.system('aplay -q ./sounds/losinglife.wav&')
                     if global_variables.active_powerupflag[3] == 1:
                         global_variables.ball_privious_speed_x = self.speed_x
                         global_variables.ball_privious_speed_y = -1*self.speed_y

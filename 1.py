@@ -1,3 +1,3 @@
 import os
 
-os.system('aplay -q losinglife.wav&')
+os.system('aplay -q ./sounds/losinglife.wav&')
