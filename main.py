@@ -26,7 +26,8 @@ if __name__ == "__main__":
             break
         elif val == 'x':   
             shoot()
-            
+        # elif val == ' ':
+        #     os.system('aplay -q losinglife.wav&')
         elif val == 'a':
             move_left()
         elif val == 'd':

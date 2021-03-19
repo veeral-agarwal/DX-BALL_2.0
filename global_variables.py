@@ -243,7 +243,7 @@ def print_final_scores():
     print("score: ",config.score)
 
 def is_time_left():
-    if total_time>200:
+    if total_time>300:
         return False
     else:
         return True

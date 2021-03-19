@@ -1,2 +1,3 @@
-import time 
-print(time.time())
+import os
+
+os.system('aplay -q losinglife.wav&')
