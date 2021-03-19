@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
         if val != None:
             sleep(0.05)
-        if val == 'q' or is_life_left() == False or is_time_left()==False:
+        if val == 'q' or is_life_left() == False or is_time_left()==False or global_variables.main_ufo.lives<=0:
             break
         elif val == 'x':   
             shoot()
@@ -32,8 +32,9 @@ if __name__ == "__main__":
             move_left()
         elif val == 'd':
             move_right()
-        elif val == 'l' or config.score == 1 or config.score == 360:
-            config.score+=1
+        elif val == 'l' or config.score == 180 or config.score == 360:
+            if config.score == 180 or config.score == 360:    
+                config.score+=1
             global_variables.level+=1
             if global_variables.level == 1:
                 objects.levelskip()
@@ -43,6 +44,11 @@ if __name__ == "__main__":
                 objects.levelskip()
             else:
                 break
+        if global_variables.level==2 and int(global_variables.total_time)%5==0:
+            os.system('aplay -q ./sounds/boss.mp3&')
+            # pass
         render_all_components()
     print_final_scores()
     print(global_variables.level)
+    if global_variables.main_ufo.lives<=0:
+        print("you win")

@@ -91,7 +91,7 @@ def make_bricks():
             rainbow_brick_list.append(Rainbow_bricks(brick , i+5 , 12))
             bricks4.append(Brick(brick , i+5,5 ,randomizer() , 8 ))
             bricks1.append(Brick(brick , i+5,6 , randomizer() , 8 )) 
-            bricks2.append(Brick(brick , i+5,10 , randomizer() , random.randint(7,7) ))
+            bricks2.append(Brick(brick , i+5,10 , randomizer() , random.randint(0,7) ))
             bricks3.append(Brick(brick , i+5,8 , randomizer() , 8 ))
             if i >20 and i<45:
                 exp_brick.append(Exploding_bricks(exploding , i+5 , 7)) 
@@ -169,6 +169,9 @@ def powerup_top_string():
             active_powerups.append( powerups_name[i] )
     print("active powerups:")
     print(active_powerups)
+    t = time.time()-powerup_start_time[7]
+    if 20-t>=0:
+        print("shooting paddle time left : ", 20-t)
 
 def render_inair_powerup():
     for i in powerup_objects:

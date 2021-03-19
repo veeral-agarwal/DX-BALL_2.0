@@ -102,11 +102,14 @@ class Ball(Objects):
     def collision_with_wall(self):
         if self.position_x + self.speed_x<=1 or self.position_x+self.speed_x>=96:
             self.speed_x *= -1
+            os.system('aplay -q ./sounds/brickball.wav&')
         
         if self.position_y <=4:
             self.speed_y *= -1
+            os.system('aplay -q ./sounds/brickball.wav&')
         
         elif self.position_y + self.speed_y>=37:
+            os.system('aplay -q ./sounds/losinglife.wav&')
             default()
             self.speed_x = 0
             self.speed_y = 0
@@ -374,6 +377,8 @@ class Brick(Objects):
     def collision_ball_brick(self):
         if self.isexplosive == False:
             if (self.position_x == global_variables.main_ball.position_x and self.position_y == global_variables.main_ball.position_y) :
+                if self.weight>0:
+                    os.system('aplay -q ./sounds/brickball.wav&')
                 if (self.weight > 0 and self.weight<4) or (self.weight == np.inf):
                     if global_variables.active_powerupflag[6] == 1:
                         fireball_brick(self.position_x,self.position_y)
@@ -453,6 +458,8 @@ class Brick(Objects):
                 else:
                     self.weight -= 1
             elif (self.position_x+1 == global_variables.main_ball.position_x and self.position_y == global_variables.main_ball.position_y):
+                if self.weight>0:
+                    os.system('aplay -q ./sounds/brickball.wav&')
                 if (self.weight > 0 and self.weight<4) or (self.weight == np.inf):
                     if global_variables.active_powerupflag[6] == 1:
                         fireball_brick(self.position_x,self.position_y)
@@ -522,6 +529,8 @@ class Brick(Objects):
                     self.weight -= 1
 
             elif (self.position_x+2 == global_variables.main_ball.position_x and self.position_y == global_variables.main_ball.position_y):
+                if self.weight>0:
+                    os.system('aplay -q ./sounds/brickball.wav&')
                 if (self.weight > 0 and self.weight<4) or (self.weight == np.inf) :
                     if global_variables.active_powerupflag[6] == 1:
                         fireball_brick(self.position_x,self.position_y)
@@ -603,7 +612,8 @@ class Brick(Objects):
                     self.weight -= 1
 
             elif (self.position_x == global_variables.main_bullet.position_x and self.position_y == global_variables.main_bullet.position_y) or (self.position_x+1 == global_variables.main_bullet.position_x and self.position_y == global_variables.main_bullet.position_y) or (self.position_x+2 == global_variables.main_bullet.position_x and self.position_y == global_variables.main_bullet.position_y) :
-                
+                if self.weight>0:
+                    os.system('aplay -q ./sounds/brickball.wav&')
                 if self.weight==1:
                     self.weight-=1
                     config.score += 1     
@@ -680,7 +690,8 @@ class Rainbow_bricks(Objects):
     def collision_ball_brick(self):
         if (self.position_x == global_variables.main_ball.position_x and self.position_y == global_variables.main_ball.position_y) :
             # explosion_coor(self.position_x,self.position_y)
-            
+            if self.weight>0:
+                os.system('aplay -q ./sounds/brickball.wav&')
             self.collisionhappened = 1
             if self.weight >0:
                 global_variables.main_ball.speed_y *= -1
@@ -689,7 +700,8 @@ class Rainbow_bricks(Objects):
             #     for j in range(self.height):
             #         global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ' '
         elif (self.position_x+1 == global_variables.main_ball.position_x and self.position_y == global_variables.main_ball.position_y) :
-            
+            if self.weight>0:
+                os.system('aplay -q ./sounds/brickball.wav&')
             self.collisionhappened = 1
             if self.weight >0:
                 global_variables.main_ball.speed_y *= -1
@@ -699,7 +711,8 @@ class Rainbow_bricks(Objects):
             #     for j in range(self.height):
             #         global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ' '
         elif (self.position_x+2 == global_variables.main_ball.position_x and self.position_y == global_variables.main_ball.position_y) :
-            
+            if self.weight>0:
+                os.system('aplay -q ./sounds/brickball.wav&')
             self.collisionhappened = 1
             if self.weight >0:
                 global_variables.main_ball.speed_y *= -1
@@ -709,6 +722,8 @@ class Rainbow_bricks(Objects):
             #     for j in range(self.height):
             #         global_variables.main_board.matrix[j+self.position_y][i+self.position_x] = ' '
         elif (self.position_x == global_variables.main_bullet.position_x and self.position_y == global_variables.main_bullet.position_y) or (self.position_x+1 == global_variables.main_bullet.position_x and self.position_y == global_variables.main_bullet.position_y) or (self.position_x+2 == global_variables.main_bullet.position_x and self.position_y == global_variables.main_bullet.position_y) :
+            if self.weight>0:
+                os.system('aplay -q ./sounds/brickball.wav&')
             if self.weight==1:
                 # self.weight-=1
                 config.score += 1     
@@ -758,7 +773,7 @@ class UFO(Objects):
         super().__init__(obj,xpos,ypos)
         self.position_x = xpos
         self.position_y = ypos
-        self.lives = 15
+        self.lives = 100
 
     def collision_with_ball(self):
         if global_variables.main_ball.position_y == self.position_y or global_variables.main_ball.position_y == self.position_y+1:
@@ -846,6 +861,8 @@ class Bullet(Objects):
             self.shape = [[' ']]
             self.speed_flag = 1
         if (int)(lol) % 5 == 0:
+            
+            os.system('aplay -q ./sounds/losinglife.wav&')
             self.position_x = global_variables.main_paddle.position_x
             self.position_y = global_variables.main_paddle.position_y
             self.speed_y = 1

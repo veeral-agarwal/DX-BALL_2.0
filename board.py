@@ -23,7 +23,7 @@ class Board():
         print("lives left:",config.lives,"   score:" , config.score+global_variables.explosion_score() , "     time till now:",int(global_variables.total_time) , "level: ", global_variables.level)
         print("health of ufo : ", global_variables.main_ufo.lives)
         print("health bar of ufo : [",end="")
-        for i in range(1,16):
+        for i in range(1,101):
             
             if i <= global_variables.main_ufo.lives:
                 print('#',end="")
