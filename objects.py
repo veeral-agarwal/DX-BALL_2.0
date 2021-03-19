@@ -791,10 +791,10 @@ class UFO(Objects):
         if global_variables.main_bullet.position_y == self.position_y or global_variables.main_bullet.position_y == self.position_y+1:
             if global_variables.main_bullet.position_x>=self.position_x and global_variables.main_bullet.position_x <=self.position_x+4:
                 self.lives-=1
-                if self.lives == 10 :
+                if self.lives == 50 :
                     for i in range(0,90,3):
                         global_variables.b1.append(Brick(config.brick,i+3,8,random.randint(1,3),8))
-                if self.lives == 5:
+                if self.lives == 25:
                     for i in range(0,90,3):
                         global_variables.b2.append(Brick(config.brick,i+3,9,random.randint(1,3),8))
                 global_variables.main_bullet.speed_y = 0
@@ -1014,5 +1014,5 @@ def take_down_bricks():
                         j.position_y += 1
                 
                 elif global_variables.level == 2:
-                    if round(time()) - global_variables.level2starttime > 15:
+                    if round(time()) - global_variables.level2starttime > 50:
                         j.position_y += 1
