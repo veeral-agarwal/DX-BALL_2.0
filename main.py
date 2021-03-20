@@ -7,6 +7,11 @@ import global_variables
 import objects
 
 if __name__ == "__main__":
+    
+    lol = input("wanna sound [y/n]:")
+    if lol == 'y':
+        global_variables.wantsound = 1
+
     obj1 = Get()
     global_variables.flag = 0
     brickfalldownstarter = 0
@@ -26,8 +31,6 @@ if __name__ == "__main__":
             break
         elif val == 'x':   
             shoot()
-        # elif val == ' ':
-        #     os.system('aplay -q losinglife.wav&')
         elif val == 'a':
             move_left()
         elif val == 'd':
@@ -45,7 +48,8 @@ if __name__ == "__main__":
             else:
                 break
         if global_variables.level==2 and int(global_variables.total_time)%5==0:
-            os.system('aplay -q ./sounds/boss.mp3&')
+            if global_variables.wantsound == 1:
+                os.system('aplay -q ./sounds/boss.mp3&')
             # pass
         render_all_components()
     print_final_scores()

@@ -41,7 +41,6 @@ class Board():
     def border(self):
         for x in range(self.length):
             self.matrix[3][x] = "X"
-
         for x in range(self.length):
             self.matrix[39][x] = "="
         
