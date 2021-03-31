@@ -1,5 +1,5 @@
-# DASS assignment - 3
-# 2019114009
+# DX-BALL_2.0
+# Terminal based game on oops concept
 
 ## explanation
 
