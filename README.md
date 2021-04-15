@@ -1,5 +1,5 @@
 # DX-BALL_2.0
-# Terminal based game on oops concept
+## Terminal based game on oops concept
 
 ## explanation
 
